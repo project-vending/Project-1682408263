@@ -1,0 +1,26 @@
+To create a sample `raw_data.csv` file in the `WebScraperAnalyzer/data` folder, you can use the following Python code:
+
+#python
+import csv
+import os
+
+# Define data directory and file
+data_dir = "WebScraperAnalyzer/data"
+data_file = "raw_data.csv"
+
+# Create data directory if it doesn't exist
+if not os.path.exists(data_dir):
+    os.makedirs(data_dir)
+
+# Write data to CSV file
+with open(os.path.join(data_dir, data_file), "w", newline="") as csvfile:
+    fieldnames = ["name", "age", "location"]
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    writer.writeheader()
+    writer.writerow({"name": "John Doe", "age": "35", "location": "New York"})
+    writer.writerow({"name": "Jane Smith", "age": "27", "location": "Chicago"})
+    writer.writerow({"name": "Bob Johnson", "age": "42", "location": "Los Angeles"})
+
+
+This code will write a CSV file with three columns (`name`, `age`, and `location`) and three rows of sample data. The file will be saved in the `WebScraperAnalyzer/data` directory with the name `raw_data.csv`.
